@@ -61,6 +61,7 @@ const imageUrl = image ? new URL(image.url, canonical).href : undefined;
 {image && imageUrl && (
   <>
     <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:secure_url" content={imageUrl} />
     <meta property="og:image:type" content={image.type} />
     <meta property="og:image:width" content={String(image.width)} />
     <meta property="og:image:height" content={String(image.height)} />

@@ -1,9 +1,9 @@
 ---
 name: seo-production-guard
-description: Audita e implementa SEO técnico en Astro y Next.js: metadatos por ruta, canonicals, previews sociales, JSON-LD, hreflang, robots y sitemaps. Úsala para corregir indexabilidad o enlaces compartidos; no sustituye investigación de palabras clave, estrategia editorial ni auditorías generales de seguridad.
+description: "Audita e implementa SEO técnico en Astro y Next.js: metadatos por ruta, canonicals, previews sociales, JSON-LD, hreflang, robots y sitemaps. Úsala para corregir indexabilidad o enlaces compartidos; no sustituye investigación de palabras clave, estrategia editorial ni auditorías generales de seguridad."
 license: CC-BY-NC-4.0
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # SEO Production Guard
@@ -51,6 +51,7 @@ Las plantillas son puntos de integración: adapta rutas, tipos y fuentes de dato
 - Exige URL absoluta HTTPS para la imagen social emitida en producción. Las rutas relativas en el código son válidas si el framework las resuelve correctamente.
 - Declara dimensiones, MIME y alt reales cuando estén disponibles. 1200 × 630 es una recomendación para banners, no una medida que deba inventarse para aprobar una prueba.
 - Comprueba que la imagen existe, se descarga sin sesión ni desafío y devuelve contenido de imagen válido. Un HTTP 200 que contiene HTML no sirve.
+- Para previews rotas, mide también los bytes descargados y aplica un presupuesto explícito acorde al consumidor. No des por resuelto un banner por la presencia de etiquetas o un GET 200; distingue entrega HTTP, recurso publicado y tarjeta observada en la plataforma.
 - Reutiliza logos y recursos de marca. Crea iconos/PWA solo cuando el alcance lo requiera. Si falta un activo, usa uno existente adecuado o reporta la dependencia; no emitas enlaces rotos como solución terminada.
 - Usa summary_large_image para banners panorámicos; respeta una tarjeta summary elegida deliberadamente.
 

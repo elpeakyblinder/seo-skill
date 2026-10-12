@@ -21,6 +21,16 @@ En X existen fallbacks a Open Graph para algunos campos. Puedes declarar twitter
 
 Una redirección no implica por sí sola un fallo: verifica su destino y límites del consumidor. No prometas forma, tamaño ni actualización instantánea de la tarjeta; la plataforma decide el renderizado.
 
+## WhatsApp y evidencia de cierre
+
+Pregunta en qué plataforma falla la tarjeta cuando no esté indicada. No equipares el 100 de SEO en Lighthouse con la generación de una preview social. Descarga página e imagen con el User-Agent pertinente, decodifica la imagen y registra bytes, MIME, medidas, redirecciones y acceso sin sesión. Una prueba con un User-Agent simulado comprueba esa respuesta HTTP, no la red del proveedor.
+
+Si el banner es pesado, exporta una variante comprimida desde el original aprobado, conservando el diseño y la legibilidad. Para banners estáticos, PNG/JPEG son una elección amplia; WebP es válido cuando se ha comprobado en el destino. Un objetivo de 100–200 KB puede servir como presupuesto del proyecto: no lo presentes como límite oficial universal de WhatsApp. La extensión y og:image:type deben concordar con los bytes reales.
+
+Usa un nombre versionado al cambiar formato o contenido para evitar reutilizar una imagen cacheada. Verifica después el HTML publicado y el nuevo recurso absoluto: validar solo localhost no prueba el deployment. Conserva el canonical; no lo cambies ni añadas parámetros de tracking para fingir una purga de caché. Una URL de imagen nueva tampoco obliga a WhatsApp a releer inmediatamente una página ya cacheada.
+
+Entrega separando tres resultados: **código local verificado**, **página e imagen publicadas verificadas**, **tarjeta observada en WhatsApp**. Marca pendientes los niveles sin evidencia. Meta Sharing Debugger puede aportar diagnóstico cuando hay acceso, pero no demuestra por sí solo el renderizado o la purga de caché de WhatsApp. No envíes mensajes ni despliegues sin autorización; si la comprobación real necesita la app del usuario, entrega el recurso concreto y los pasos para verificarlo allí.
+
 ## Marca y archivos
 
 Busca primero activos existentes. Respeta geometría, colores y nombre oficial; usa el contenido de la página para decidir entre portada editorial, captura y banner de marca. No fuerces un logo como única imagen representativa de todos los artículos.
